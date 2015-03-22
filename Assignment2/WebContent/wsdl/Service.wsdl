@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://connection" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://connection" xmlns:intf="http://connection" xmlns:tns1="http://user" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://connection" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://user"/>
+   <element name="amount">
+    <complexType>
+     <sequence>
+      <element name="brand" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="amountResponse">
+    <complexType>
+     <sequence>
+      <element name="amountReturn" type="tns1:Quantity"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="confirm">
+    <complexType>
+     <sequence>
+      <element name="confno" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="confirmResponse">
+    <complexType>
+     <sequence>
+      <element name="confirmReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="entry">
+    <complexType>
+     <sequence>
+      <element name="cid" type="xsd:int"/>
+      <element name="cname" type="xsd:string"/>
+      <element name="cnumber" type="xsd:string"/>
+      <element name="caddress" type="xsd:string"/>
+      <element name="cvv" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="entryResponse">
+    <complexType>
+     <sequence>
+      <element name="entryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="increment">
+    <complexType>
+     <sequence>
+      <element name="brand" type="xsd:string"/>
+      <element name="count" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incrementResponse">
+    <complexType>
+     <sequence>
+      <element name="incrementReturn" type="tns1:Quantity"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signUp">
+    <complexType>
+     <sequence>
+      <element name="membershipId" type="xsd:int"/>
+      <element name="firstname" type="xsd:string"/>
+      <element name="lastname" type="xsd:string"/>
+      <element name="emailId" type="xsd:string"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signUpResponse">
+    <complexType>
+     <sequence>
+      <element name="signUpReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signin">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signinResponse">
+    <complexType>
+     <sequence>
+      <element name="signinReturn" type="tns1:User"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delivery">
+    <complexType>
+     <sequence>
+      <element name="confno" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deliveryResponse">
+    <complexType>
+     <sequence>
+      <element name="deliveryReturn" type="tns1:Confirmation"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://user" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Quantity">
+    <sequence>
+     <element name="brand" nillable="true" type="xsd:string"/>
+     <element name="count" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="User">
+    <sequence>
+     <element name="emailId" nillable="true" type="xsd:string"/>
+     <element name="firstName" nillable="true" type="xsd:string"/>
+     <element name="lastName" nillable="true" type="xsd:string"/>
+     <element name="membershipId" type="xsd:long"/>
+     <element name="password" nillable="true" type="xsd:string"/>
+     <element name="username" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Confirmation">
+    <sequence>
+     <element name="confdate" nillable="true" type="xsd:dateTime"/>
+     <element name="confno" type="xsd:int"/>
+     <element name="ddate" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="signinResponse">
+
+      <wsdl:part element="impl:signinResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="amountResponse">
+
+      <wsdl:part element="impl:amountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="entryResponse">
+
+      <wsdl:part element="impl:entryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="incrementRequest">
+
+      <wsdl:part element="impl:increment" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signUpRequest">
+
+      <wsdl:part element="impl:signUp" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="amountRequest">
+
+      <wsdl:part element="impl:amount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signUpResponse">
+
+      <wsdl:part element="impl:signUpResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="confirmResponse">
+
+      <wsdl:part element="impl:confirmResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="incrementResponse">
+
+      <wsdl:part element="impl:incrementResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deliveryRequest">
+
+      <wsdl:part element="impl:delivery" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="entryRequest">
+
+      <wsdl:part element="impl:entry" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signinRequest">
+
+      <wsdl:part element="impl:signin" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="confirmRequest">
+
+      <wsdl:part element="impl:confirm" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deliveryResponse">
+
+      <wsdl:part element="impl:deliveryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Service">
+
+      <wsdl:operation name="amount">
+
+         <wsdl:input message="impl:amountRequest" name="amountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:amountResponse" name="amountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="confirm">
+
+         <wsdl:input message="impl:confirmRequest" name="confirmRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:confirmResponse" name="confirmResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="entry">
+
+         <wsdl:input message="impl:entryRequest" name="entryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:entryResponse" name="entryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="increment">
+
+         <wsdl:input message="impl:incrementRequest" name="incrementRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:incrementResponse" name="incrementResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signUp">
+
+         <wsdl:input message="impl:signUpRequest" name="signUpRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signUpResponse" name="signUpResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signin">
+
+         <wsdl:input message="impl:signinRequest" name="signinRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signinResponse" name="signinResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delivery">
+
+         <wsdl:input message="impl:deliveryRequest" name="deliveryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deliveryResponse" name="deliveryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServiceSoapBinding" type="impl:Service">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="amount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="amountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="amountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="confirm">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="confirmRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="confirmResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="entry">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="entryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="entryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="increment">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="incrementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="incrementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signUp">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signUpRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signUpResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signin">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signinRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signinResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delivery">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deliveryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deliveryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServiceService">
+
+      <wsdl:port binding="impl:ServiceSoapBinding" name="Service">
+
+         <wsdlsoap:address location="http://localhost:8080/Assignment2/services/Service"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
